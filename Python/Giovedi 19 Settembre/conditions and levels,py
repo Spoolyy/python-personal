@@ -1,0 +1,14 @@
+numero = 100 
+if numero > 0: 
+    print("Il numero é positivo") 
+    if numero == 100: 
+        print ("wow") 
+elif numero < 0: 
+    print("Il numero é negativo") 
+
+else: 
+    print("Il numero é zero")
+    
+numeri = [1,2,3,4,5]
+for numero in numeri:
+    print(numero)
