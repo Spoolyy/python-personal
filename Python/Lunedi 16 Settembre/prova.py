@@ -1,3 +1,4 @@
+import newfile
 print ("Ciao!")
 
 x = "mirko"
@@ -19,7 +20,11 @@ def decoratore2(funzione):
 @decoratore
 @decoratore2
 
+
 def stampa_var():
     print ("mirko")
 
 stampa_var()
+
+x = newfile.calcolatrice()
+x.somma()
