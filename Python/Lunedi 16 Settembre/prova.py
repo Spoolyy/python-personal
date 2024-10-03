@@ -20,7 +20,6 @@ def decoratore2(funzione):
 @decoratore
 @decoratore2
 
-
 def stampa_var():
     print ("mirko")
 

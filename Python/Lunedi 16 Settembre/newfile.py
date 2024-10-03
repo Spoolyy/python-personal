@@ -7,7 +7,7 @@ def decoratore(funzione):
     return wrapper
 
 class calcolatrice():
-    @decoratore
+    #@decoratore
     def somma():
         x = 0
         while True:
