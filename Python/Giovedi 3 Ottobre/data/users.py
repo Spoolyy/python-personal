@@ -1,3 +1,5 @@
+import inventory
+
 fixedcredentials = {
     "administrationKey": 'admin99'
 }
@@ -62,3 +64,25 @@ def login():
             print ("Hello ",username,", you have successfully logged in, your admin id is: ",userOne['admin_id'])
         else:
             print ("Hello ",username,", you have successfully logged in")
+            
+def user_menu(): 
+        print('hello ',userOne['username'],' What would you like to do?')
+        print('Show inventory: 1')
+        print('Buy something: 2')
+        print('Show cart: 3')
+        while True:
+            choice = int(input('Your choice: '))
+            if choice == 1:
+                inventory.show_inventory()
+                break
+            elif choice == 2:
+                print ('Great, let me show you the inventory to help you!')
+                inventory.show_inventory()
+                inventory.add_to_cart()
+                break
+            elif choice == 3:
+                print("here's how your cart is looking: ")
+                inventory.show_cart()
+                break
+            else:
+                print('You have selected an invalid option.')

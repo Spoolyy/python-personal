@@ -1,4 +1,27 @@
 import inventory
+import users
+
+def admin_menu():
+    print('hello admin: ',users.userOne['username'],'. What would you like to do?')
+    print('Show inventory: 1')
+    print('Edit Inventory: 2')
+    print('Show total earnings: 3')
+    while True:
+        choice = int(input('Your choice: '))
+        if choice == 1:
+            inventory.show_inventory()
+            break
+        elif choice == 2:
+            print ('Great, let me show you the inventory to help you!')
+            inventory.show_inventory()
+            add_item()
+            break
+        elif choice == 3:
+            print("here's how your cart is looking: ")
+            inventory.show_cart()
+            break
+        else:
+            print('You have selected an invalid option.')
 
 def add_item():
     new_item = [
@@ -28,4 +51,3 @@ def add_item():
         print('All item/s added successfully')
     else:
         input('insert a valid option')
-    
