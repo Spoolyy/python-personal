@@ -1,4 +1,5 @@
 import users
+import administration
 
 print ('NON LOGGARE COME ADMIN, WORK IN PROGRESS!!!!!')
 users.account_procedure()
@@ -28,7 +29,7 @@ def show_cart():
     for item in user_cart:
         print ('Identificativo: ',item[1],'| Descrizione: ',item[2],'| Prezzo: $',item[3],'| in stock: ',item[4],'pz.')
         
-def buy_item():
+def add_to_cart():
     print('choose the item based on their ID: ')
     while True:
         choice = int(input('ID: '))
@@ -39,26 +40,58 @@ def buy_item():
         else:
             user_cart.insert(inventory[choice])
             print('Great, item added to your cart')
-            break
-    
-if users.userOne['is_admin'] == True: # Dictates menu choices for administrators
-    def admin_options():
-        print('pizzocalabro QUESTO E UN PLACEHOLDER LEVALO DAL CAZZO QUANDO HAI FINITO')
-else: # Dictates menu choices for basic users
-    def user_options(): 
+            choice = input('Would you like to add another item? y/n').lower()
+            if choice == 'y':
+                add_to_cart()
+            elif choice == 'n':
+                break
+            
+def user_menu(): 
         print('hello ',users.userOne['username'],' What would you like to do?')
         print('Show inventory: 1')
         print('Buy something: 2')
         print('Show cart: 3')
+        while True:
+            choice = int(input('Your choice: '))
+            if choice == 1:
+                show_inventory()
+                break
+            elif choice == 2:
+                print ('Great, let me show you the inventory to help you!')
+                show_inventory()
+                add_to_cart()
+                break
+            elif choice == 3:
+                print("here's how your cart is looking: ")
+                show_cart()
+                break
+            else:
+                print('You have selected an invalid option.')
+
+def admin_menu():
+    print('hello admin: ',users.userOne['username'],'. What would you like to do?')
+    print('Show inventory: 1')
+    print('Edit Inventory: 2')
+    print('Show total earnings: 3')
+    while True:
         choice = int(input('Your choice: '))
         if choice == 1:
             show_inventory()
+            break
         elif choice == 2:
             print ('Great, let me show you the inventory to help you!')
             show_inventory()
-            buy_item()
+            add_to_cart()
+            break
         elif choice == 3:
             print("here's how your cart is looking: ")
             show_cart()
+            break
         else:
-            print
+            print('You have selected an invalid option.')
+        
+if users.userOne['is_admin'] == True: # Dictates menu choices for administrators
+    admin_menu()
+else: # Dictates menu choices for basic users
+    user_menu()
+            
