@@ -1,6 +1,3 @@
-import inventory
-import users
-
 def admin_menu():
     print('hello admin: ',users.userOne['username'],'. What would you like to do?')
     print('Show inventory: 1')
