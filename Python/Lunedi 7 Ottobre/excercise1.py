@@ -12,12 +12,24 @@ class Cars:
     def printinfo(self):
         print('the car is a', self.year, self.make, self.model)
         
+    def __str__(self):
+        return f"Car(Make: {self.make}, Model: {self.model}, Year: {self.year})"
+        
 examplecar = Cars('Nissan', 'Skyline', 1999)
 examplecar.printinfo()
 
-def create_new_car():
-    car1 = Cars('','','')
-    car1.getinfo()
-    car1.printinfo()
+CarsArray = [
+    
+]
 
+def create_new_car():
+    while True:
+        newcar = Cars('','','')
+        newcar.getinfo()
+        CarsArray.append(newcar)
+        choice = input('do you wish exit or continue adding cars? ').lower()
+        if choice == 'exit':
+            for Car in CarsArray:
+                print(Car)
+            break
 create_new_car()
