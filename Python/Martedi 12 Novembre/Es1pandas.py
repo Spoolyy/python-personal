@@ -1,7 +1,7 @@
 import pandas as pd
 import numpy as np
 
-data =  {
+data = {
     'Name': ['Charles', 'Lewis', 'Carlos', 'Max', 'Lando'],
     'Age': [27, 39, 27, np.nan, 26],
     'City': ['Monaco', 'London', 'Barcelona', 'Spa', 'London'],

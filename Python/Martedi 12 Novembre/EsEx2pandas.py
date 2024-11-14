@@ -13,7 +13,6 @@ df = pd.DataFrame(data)
 print("DataFrame Originale:")
 print(df)
 
-
 # Rimozione dei duplicati
 df = df.drop_duplicates()
 
